@@ -12,10 +12,19 @@ df = pd.read_csv('C:/Trader/indicator/goog-2011-yahoofinance.csv')
 
 def Exponential_Moving_Average(df, n):
     EMA = []
-    j = 1
+    j = 10
     #get n sma first and calculate the next n period ema
     sma = sum(df[:n]) / n
     multiplier = 2 / float(1 + n)
+    EMA.append(df.rolling(window=10).mean()[0])
+    EMA.append(df.rolling(window=10).mean()[0])
+    EMA.append(df.rolling(window=10).mean()[0])
+    EMA.append(df.rolling(window=10).mean()[0])
+    EMA.append(df.rolling(window=10).mean()[0])
+    EMA.append(df.rolling(window=10).mean()[0])
+    EMA.append(df.rolling(window=10).mean()[0])
+    EMA.append(df.rolling(window=10).mean()[0])
+    EMA.append(df.rolling(window=10).mean()[0])
     EMA.append(sma)
     #EMA(current) = ( (Price(current) - EMA(prev) ) x Multiplier) + EMA(prev)
     EMA.append(( ( df.iloc[n] - sma) * multiplier) + sma)    
@@ -30,9 +39,11 @@ def Exponential_Moving_Average(df, n):
     return EMA
         
 #Exponential_Moving_Average((df['Adj Close']),10)
-EMA = Exponential_Moving_Average((df['Adj Close']),10)
-plt.plot(EMA,label='EMA')
-plt.plot((df['Adj Close']),label='Share Price')
+#plt.plot(df['Date'],EMA,label='EMA') #con la fecha
+#plt.plot(df['Date'],df['Adj Close'],label='Share Price') #con la fecha
+EMA = Exponential_Moving_Average(df['Adj Close'],10)
+plt.plot(df['Date'],EMA,label='EMA')
+plt.plot(df['Date'],df['Adj Close'],label='Share Price')
 plt.xlabel('Date')
 plt.ylabel('USD')
 plt.legend()

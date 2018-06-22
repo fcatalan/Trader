@@ -4,12 +4,7 @@
     // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "Python: hello.py",
-            "type": "python",
-            "request": "launch",
-            "program": "ma.py"
-        },
+
         {
             "name": "Python: Current File",
             "type": "python",

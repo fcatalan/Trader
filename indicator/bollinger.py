@@ -5,7 +5,7 @@ WINDOW = 20
 
 # read in CSV from file
 def get_stock_data():
-    prices = pd.read_csv('./goog-2011-yahoofinance.csv', index_col='Date',parse_dates=True,
+    prices = pd.read_csv('C:/Trader/indicator/goog-2011-yahoofinance.csv', index_col='Date',parse_dates=True,
                         usecols=['Date', 'Close'], na_values=['nan'])
 
     dates = pd.date_range('2011-01-03', '2011-12-30')
